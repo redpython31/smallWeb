@@ -113,12 +113,19 @@
 
         FILE *fptr;
 
-        fptr = fopen("Student_Record.txt","a");
+        fptr = fopen("Student_Record.txt","w");
 
         if (fptr == NULL) {
             printf("File not found!\n");
             return ;
         }
+
+        fprintf(fptr,"Name: %s\n",data.fullName);
+        fprintf(fptr,"Date of Birth: %2d-%2d-%4d\n",data.DoB.day,data.DoB.month,data.DoB.year);
+        fprintf(fptr,"Mobile no: %10d\n",data.mobileNum);
+        fprintf(fptr,"Email: %s\n",data.email);
+        fprintf(fptr,"Residential Address: %s\n",data.address);
+        fprintf(fptr,"------------NEXT STUDENT DETAIL------------\n");
 
         fclose(fptr);
         printf("File saved successfully.\n");
